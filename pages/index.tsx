@@ -5,11 +5,10 @@ const HeroTag = styled.div`
   color: #9d9d9d;
   max-width: 640px;
   margin: auto;
-  min-height: calc(100vh - 5rem);
-  padding: 6rem 1rem;
+  padding: 4rem 1rem;
   width: 100%;
   .logo {
-    color: #ffdb2b;
+    color: #f5c843;
   }
 `
 
@@ -25,7 +24,7 @@ const PreviosPostTag = styled.div`
   position: relative;
   em {
     font-size: 4rem;
-    color: #ffdb2b;
+    color: #f5c843;
   }
   time {
     display: block;
@@ -39,8 +38,47 @@ const FormTag = styled.form`
   display: block;
   text-align: center;
 `
+const InputTag = styled.input`
+    background-color: transparent;
+    border: 0.1rem solid #d1d1d1;
+    border-radius: .4rem;
+    box-shadow: none;
+    box-sizing: inherit;
+    height: 3rem;
+    padding: .3rem 1rem .3rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+`
+
+const SubmitTag = styled.button`
+    background-color: #f5c843;
+    border: 0.1rem solid #d1d1d1;
+    border-radius: .4rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 2.5rem;
+    letter-spacing: .1rem;
+    line-height: 2/5rem;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &:disabled {
+      background-color: #d1d1d1;
+    }
+`
 const IndexPage = (): React.ReactElement => {
   const [word, setWord] = useState("")
+  const isEnabled = (): boolean => word.length >= 2 && word.length <= 10
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
   return (
     <>
       <HeroTag>
@@ -62,15 +100,15 @@ const IndexPage = (): React.ReactElement => {
           <em>バナナ</em>といったら...
           <time>2021/03/09 19:24</time>
         </PreviosPostTag>
-        <FormTag>
-          <input
+        <FormTag onSubmit={(e) => submit(e)}>
+          <InputTag
             maxLength={10}
             value={word}
             onChange={(e) => setWord(e.target.value) }
           />
-          <button className="button-primary">
+          <SubmitTag disabled={!isEnabled()}>
             投稿する
-          </button>
+          </SubmitTag>
         </FormTag>
       </HeroTag>
       <section className="container">
