@@ -85,7 +85,7 @@ const IndexPage = (): React.ReactElement => {
         <div>まじかるばなな</div>
         <h1 className="logo">Magical Banana</h1>
         <MainImageTag
-          src="https://4.bp.blogspot.com/-PftCnIlpHmk/ViipSVvcokI/AAAAAAAAz0k/AlK8YitEQzs/s400/eto_saru_banana.png" />
+          src="/images/monkey.png" />
         <p>前のひとの投稿した言葉から連想できる言葉を投稿するゲームです</p>
         <ul>
           <li>
