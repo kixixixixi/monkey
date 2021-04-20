@@ -22,6 +22,8 @@ const AuthProvider: FC = ({ children }) => {
         const { user } = await signIn(token)
         console.log(user)
         setCurrentUser(user)
+      } else {
+        setCurrentUser(undefined)
       }
     })
   }, [])
