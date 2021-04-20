@@ -37,11 +37,10 @@ const LoginForm = (): ReactElement => {
   const login = () => {
     auth.signInWithRedirect(twitterProvider)
   }
-  console.log(currentUser)
   return (
      <FormContainerTag>
        { currentUser ?
-        <div>{currentUser.displayName}でログイン中</div>
+        <div>{currentUser.name}</div>
        :
       <ButtonTag onClick={login}>Twitterでログインする</ButtonTag>}
      </FormContainerTag>
