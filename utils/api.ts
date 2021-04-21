@@ -1,4 +1,5 @@
 import axios from 'utils/axios'
+import camelize from "camelize"
 import { User } from 'types'
 
 type SignInResponse = {
@@ -18,5 +19,5 @@ export const signIn = async (token: string): Promise<SignInResponse> => {
       }
     }
   })
-  return data
+  return camelize(data)
 }

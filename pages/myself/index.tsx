@@ -6,6 +6,28 @@ const ContentTag = styled.div`
   margin: auto;
   max-width: 640px;
   padding: 5rem 1rem;
+  text-align: center;
+
+  .avatar {
+    display: block;
+    height: 40px;
+    margin: 1rem auto;
+    width: 40px;
+    img {
+      border-radius: 20px;
+      width: 100%;
+    }
+  }
+  .name {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  .profile {
+    textarea {
+      font-size: .75rem;
+      width: 75%;
+    }
+  }
 `
 
 const MyselfIndexPage = (): React.ReactElement => {
@@ -13,9 +35,22 @@ const MyselfIndexPage = (): React.ReactElement => {
   return (
     <>
       <ContentTag>
-        {currentUser ? <div>
-          ようこそ{currentUser.name}さん
-        </div> : <div>
+        {currentUser ?
+        <div>
+          <div className="avatar">
+            <img src={currentUser.pictureUrl} />
+          </div>
+          <div className="name">
+            {currentUser.name}
+          </div>
+          <div className="profile">
+            <textarea rows={4} placeholder="プロフィール">
+              {currentUser.profile}
+            </textarea>
+          </div>
+        </div>
+        :
+        <div>
           ログインしてください
         </div>}
       </ContentTag>
