@@ -24,7 +24,7 @@ const ContentTag = styled.div`
   }
   .profile {
     textarea {
-      font-size: .75rem;
+      font-size: 0.75rem;
       width: 75%;
     }
   }
@@ -35,24 +35,21 @@ const MyselfIndexPage = (): React.ReactElement => {
   return (
     <>
       <ContentTag>
-        {currentUser ?
-        <div>
-          <div className="avatar">
-            <img src={currentUser.pictureUrl} />
+        {currentUser ? (
+          <div>
+            <div className="avatar">
+              <img src={currentUser.pictureUrl} />
+            </div>
+            <div className="name">{currentUser.name}</div>
+            <div className="profile">
+              <textarea rows={4} placeholder="プロフィール">
+                {currentUser.profile}
+              </textarea>
+            </div>
           </div>
-          <div className="name">
-            {currentUser.name}
-          </div>
-          <div className="profile">
-            <textarea rows={4} placeholder="プロフィール">
-              {currentUser.profile}
-            </textarea>
-          </div>
-        </div>
-        :
-        <div>
-          ログインしてください
-        </div>}
+        ) : (
+          <div>ログインしてください</div>
+        )}
       </ContentTag>
     </>
   )

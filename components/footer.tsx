@@ -8,15 +8,16 @@ const FooterTag = styled.footer`
   background: #201006;
   color: white;
   display: block;
-  font-size: .75rem;
-  padding: 6rem .5rem 6rem;
+  font-size: 0.75rem;
+  padding: 6rem 0.5rem 6rem;
   width: 100%;
   .menu {
     padding: 2rem;
     text-align: center;
 
-    > a, > button {
-      margin: 0 .25rem;
+    > a,
+    > button {
+      margin: 0 0.25rem;
     }
 
     button {
@@ -51,15 +52,9 @@ const Footer = (): ReactElement => {
     <FooterTag>
       <div>
         <div className="menu">
-          <Link href="/">
-            トップ
-          </Link>
-          {currentUser && <button onClick={() => signOut()}>
-            ログアウト
-          </button>}
-          {currentUser && <Link href="/myself">
-            マイページ
-          </Link>}
+          <Link href="/">トップ</Link>
+          {currentUser && <button onClick={() => signOut()}>ログアウト</button>}
+          {currentUser && <Link href="/myself">マイページ</Link>}
         </div>
         <div className="copy">
           Copyright &copy; Reload, Inc. All rights reserved.

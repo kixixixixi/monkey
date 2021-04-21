@@ -30,7 +30,7 @@ const PreviosPostTag = styled.div`
     display: block;
     position: absolute;
     right: 0;
-    font-size: .5rem;
+    font-size: 0.5rem;
   }
 `
 
@@ -39,39 +39,39 @@ const FormTag = styled.form`
   text-align: center;
 `
 const InputTag = styled.input`
-    background-color: transparent;
-    border: 0.1rem solid #d1d1d1;
-    border-radius: .4rem;
-    box-shadow: none;
-    box-sizing: inherit;
-    height: 3rem;
-    padding: .3rem 1rem .3rem;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 1.5rem;
+  background-color: transparent;
+  border: 0.1rem solid #d1d1d1;
+  border-radius: 0.4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3rem;
+  padding: 0.3rem 1rem 0.3rem;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
 `
 
 const SubmitTag = styled.button`
-    background-color: #f5c843;
-    border: 0.1rem solid #d1d1d1;
-    border-radius: .4rem;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1rem;
-    font-weight: 700;
-    height: 2.5rem;
-    letter-spacing: .1rem;
-    line-height: 2/5rem;
-    padding: 0 1rem;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
+  background-color: #f5c843;
+  border: 0.1rem solid #d1d1d1;
+  border-radius: 0.4rem;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 2.5rem;
+  letter-spacing: 0.1rem;
+  line-height: 2/5rem;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
 
-    &:disabled {
-      background-color: #d1d1d1;
-    }
+  &:disabled {
+    background-color: #d1d1d1;
+  }
 `
 const IndexPage = (): React.ReactElement => {
   const [word, setWord] = useState("")
@@ -84,18 +84,13 @@ const IndexPage = (): React.ReactElement => {
       <HeroTag>
         <div>まじかるばなな</div>
         <h1 className="logo">Magical Banana</h1>
-        <MainImageTag
-          src="/images/monkey.png" />
+        <MainImageTag src="/images/monkey.png" />
         <p>前のひとの投稿した言葉から連想できる言葉を投稿するゲームです</p>
         <ul>
-          <li>
-            2文字以上、10文字以下の"単語"を投稿してください
-          </li>
-          <li>
-            投稿をすると過去の投稿を閲覧できます
-          </li>
+          <li>2文字以上、10文字以下の"単語"を投稿してください</li>
+          <li>投稿をすると過去の投稿を閲覧できます</li>
         </ul>
-        <br/>
+        <br />
         <PreviosPostTag>
           <em>バナナ</em>といったら...
           <time>2021/03/09 19:24</time>
@@ -104,15 +99,12 @@ const IndexPage = (): React.ReactElement => {
           <InputTag
             maxLength={10}
             value={word}
-            onChange={(e) => setWord(e.target.value) }
+            onChange={(e) => setWord(e.target.value)}
           />
-          <SubmitTag disabled={!isEnabled()}>
-            投稿する
-          </SubmitTag>
+          <SubmitTag disabled={!isEnabled()}>投稿する</SubmitTag>
         </FormTag>
       </HeroTag>
-      <section className="container">
-      </section>
+      <section className="container"></section>
     </>
   )
 }
