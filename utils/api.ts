@@ -9,9 +9,15 @@ type SignInResponse = {
 
 export const signIn = async (token: string): Promise<SignInResponse> => {
   const { data } = await axios
-    .post<SignInResponse>("/myself", {
-      token,
-    })
+    .post<SignInResponse>(
+      "/myself",
+      {},
+      {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      }
+    )
     .catch((error) => {
       console.error(error)
       return {
